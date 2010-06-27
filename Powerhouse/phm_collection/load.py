@@ -41,9 +41,9 @@ def import_categories(filename):
     database lookups when items are imported.
     """
     category_map = dict(models.Category.objects.values_list("name", "id"))
-    names = set(line.strip().title() for line in open(filename).readlines()
-            if line)
+    names = set(line.strip().title() for line in open(filename).readlines())
     names.difference_update(category_map.keys())
+    names.discard("")
     current = 0
     for name in names:
         obj = models.Category.objects.create(name=name)
