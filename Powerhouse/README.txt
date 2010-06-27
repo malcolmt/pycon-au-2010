@@ -20,3 +20,5 @@ memory-backed filesystem (in Linux). I ran:
 	PYTHONPATH=.. DJANGO_SETTINGS_MODULE=settings ./load.py \
 			categories.txt phm_collection.txt 
 
+Using this setup (memory-backed filesystem), it takes just over 5 minutes to import the full dataset using a single 2.5GHz core on my laptop.
+

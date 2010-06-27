@@ -9,7 +9,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": os.path.join(SITE_DIR, "phm.sqlite"),
-        #"NAME": "/home/malcolm/tmpfs/phm.sqlite",
+        #"NAME": "/home/malcolm/store/phm.sqlite",  # For memory-backed fs.
     }
 }
 
