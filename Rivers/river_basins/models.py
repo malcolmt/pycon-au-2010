@@ -4,8 +4,8 @@ mapping dictionaries were generated using the "ogrinspect" management command.
 
 I ran something along the lines of:
 
-     ./manage.py ogrinspect --decimal true --mapping --srid -1 \
-     rbasin_chain.shp RBasinChain >> river_basins/models.py
+     ./manage.py ogrinspect --decimal true --mapping rbasin_chain.shp \
+         RBasinChain >> river_basins/models.py 
 
 (repeat two more times for rbasin_point.shp and rbasin_polygon.shp).
 
@@ -13,8 +13,9 @@ I ran something along the lines of:
 
 from django.contrib.gis.db import models
 
-# FIXME: All the PolygonFields should have srid=-1, but that isn't known to
-# proj by default, so we ignore the projection for now.
+# FIXME: All the PolygonFields should use the AGD66 projection, but that isn't
+# known to proj by default, so we ignore the projection for now. It's not too
+# far off to just use the default and works for tutorial purposes.
 
 class RBasinPolygon(models.Model):
     area = models.DecimalField(max_digits=31, decimal_places=15)
