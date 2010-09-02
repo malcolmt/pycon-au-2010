@@ -14,10 +14,11 @@ licensed under the terms in the README.txt file in the parent directory.
 
 I used a PostGIS database to load the data:
 
-	createdb -T postgis_template rivers
+	createdb -T template_postgis rivers
 	./manage.py syncdb --noinput
 	cd river_basins
-	PYTHONPATH=.. DJANGO_SETTINGS_MODULE=settings /load.py <shapefile_dir>
+	PYTHONPATH=.. DJANGO_SETTINGS_MODULE=settings ./load.py <shapefile_dir>
 
-The code here provides a way to load the data and view it in the admin.
+The code here provides a way to load the data and view it in the admin. Note that the final line, above, takes a directory, not a shapefile. It loads the three shapefiles from the riverbasin set (points, polygons and chains) as part of the loading process.
+
 
